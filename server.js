@@ -13,11 +13,13 @@
 
 
 import express from 'express'
+import cors from 'cors' 
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient() // Variavel para manipulação do Prisma
 const app = express() // variavel para manipulação do express
 app.use(express.json()) // variavel para conversão em json
+app.use(cors()) // Com esse comando é possivel eu front-end se conectar com meu servidor
 
 
 app.post('/usuarios', async (req, res) => { // Criar novo usuário
